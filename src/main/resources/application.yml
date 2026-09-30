@@ -1,0 +1,28 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: call-service
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/video_platform?currentSchema=calls}
+    username: ${DATABASE_USER:video}
+    password: ${DATABASE_PASSWORD:video}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+    schemas: calls
+    default-schema: calls
+security:
+  jwt:
+    secret: ${JWT_SECRET}
+app:
+  cors:
+    allowed-origins: ${FRONTEND_ORIGINS:http://localhost:3000,http://localhost:3001}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
