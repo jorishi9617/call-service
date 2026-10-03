@@ -29,7 +29,7 @@ services:
           name: call-service-db
           property: password
       - key: FRONTEND_ORIGINS
-        sync: false
+        value: http://localhost:3000,https://frontend-web-nine-theta.vercel.app
       - key: JWT_SECRET
         sync: false
 
