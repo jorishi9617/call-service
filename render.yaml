@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: call-service
+    runtime: docker
+    region: oregon
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: DATABASE_HOST
+        fromDatabase:
+          name: call-service-db
+          property: host
+      - key: DATABASE_PORT
+        fromDatabase:
+          name: call-service-db
+          property: port
+      - key: DATABASE_NAME
+        fromDatabase:
+          name: call-service-db
+          property: database
+      - key: DATABASE_USER
+        fromDatabase:
+          name: call-service-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: call-service-db
+          property: password
+      - key: FRONTEND_ORIGINS
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+
+databases:
+  - name: call-service-db
+    databaseName: call_service
+    user: call_service
+    region: oregon
+    plan: basic-256mb
