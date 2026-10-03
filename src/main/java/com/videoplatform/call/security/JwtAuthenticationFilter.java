@@ -1,6 +1,5 @@
 package com.videoplatform.call.security;
 
-import com.videoplatform.common.security.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
