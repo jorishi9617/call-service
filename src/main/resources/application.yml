@@ -1,12 +1,12 @@
 server:
-  port: 8082
+  port: ${PORT:${SERVER_PORT:8082}}
 spring:
   application:
     name: call-service
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/video_platform?currentSchema=calls}
-    username: ${DATABASE_USER:video}
-    password: ${DATABASE_PASSWORD:video}
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: validate
@@ -20,7 +20,7 @@ security:
     secret: ${JWT_SECRET}
 app:
   cors:
-    allowed-origins: ${FRONTEND_ORIGINS:http://localhost:3000,http://localhost:3001}
+    allowed-origins: ${FRONTEND_ORIGINS}
 management:
   endpoints:
     web:
