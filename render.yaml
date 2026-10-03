@@ -3,7 +3,7 @@ services:
     name: call-service
     runtime: docker
     region: oregon
-    plan: starter
+    plan: free
     dockerfilePath: ./Dockerfile
     dockerContext: .
     healthCheckPath: /actuator/health
@@ -38,4 +38,4 @@ databases:
     databaseName: call_service
     user: call_service
     region: oregon
-    plan: basic-256mb
+    plan: free
